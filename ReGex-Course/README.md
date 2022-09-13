@@ -4,11 +4,11 @@
 
 | Symbol | What does it represent? |
 |------------|--------------|
-| <h2>*</h2> | Zero or more occurrences of the character that precedes this asterisk| 
+| <h2>*</h2> | <b>Zero</b> or more occurrences of the character that precedes this asterisk| 
 | <h2> . </h2>| A wildcard that represents any character|
 | <h2>.*</h2> | Zero or more occurences of wildcard, which means zero or more occurences of any character|
 | <h3>\s</h3> | Represents whitespace|
-| \s*| zero or more occurences of whitespace|
+| \s*| Zero or more occurences of whitespace|
 |<h3>[pqr]</h3>| A single character which can be either a 'p', 'q' or an 'r'|
 |<h3>[a-d]</h3>| A single character that falls in the range 'a-d', i.e. one of 'a', 'b', 'c' or 'd'
 |<h3>[ˆpq]</h3>| A single character that is neither 'p' nor 'q'. <h5> ^ is negation when inside of  the '[ ]'</h5> |
@@ -21,8 +21,8 @@
 
 | Symbol | What does it represent? |
 ------------|--------------
-|<h2>+</h2>| One or more occurences of the character that precedes this + symbol |
-|<h3>?</h3>| Zero or one occurence of the character that precedes this question mark |
+|<h2>+</h2>| <b>One</b> or more occurences of the character that precedes this + symbol |
+|<h3>?</h3>| <b>Zero</b> or <b>one</b> occurence of the character that precedes this question mark |
 |<h3>pat1\|pat2</h3>| Matches either the pattern pat1 or the pat2 |
 |<h3>()</h3>| Divides patterns into groups |
 |<h3>{m}</h3>| Exaclty 'm' occurrences of whatever precedes|
