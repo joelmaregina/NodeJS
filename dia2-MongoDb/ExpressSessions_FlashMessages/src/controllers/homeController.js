@@ -14,9 +14,16 @@
 //     .catch(e => console.log(e));
 
 exports.paginaInicial = (req, res) => {
+    // req.session.usuario = {nome: 'Joelma', logado: true};
+    // req.flash('info', 'Olá mundo');
+    // req.flash('error', 'asfiosifisd');
+    // req.flash('succes', 'Meromeromei');
+    console.log(req.session.usuario);
+    console.log(req.flash('error'), req.flash('Success'), req.flash('info'));
     res.render('index');
 };
 
 exports.trataPost = (req, res) => {
     res.send(req.body);
 };
+
