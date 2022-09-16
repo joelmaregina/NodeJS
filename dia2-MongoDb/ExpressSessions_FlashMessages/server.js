@@ -1,28 +1,27 @@
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
 mongoose.connect(process.env.CONNECTIONSTRING)
   .then(() => {
     console.log('Conected to the database');
     app.emit('ready');
   })
   .catch(e => console.log(e));
-
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const flash = require('connect-flash');
-
+const session = require('express-session'); // Cookie
+const MongoStore = require('connect-mongo'); // Sessões serão salvas em um BDados
+const flash = require('connect-flash'); // Mensagens em sessão, autodestrutivas
 const routes = require('./routes');
 const path = require('path');
-const { middlewareGlobal, outroMiddleware } = require('./src/middlewares/midddleware');
+const helmet = require('helmet');
+const csrf = require('csurf'); // CsrfTokens para todos os forms dos sites, para que nenhum app/site externo consiga postar coisas para dentro da aplicação (segurança)
+const { middlewareGlobal, checkCsrfError, outroMiddleware, csrfMiddleware } = require('./src/middlewares/midddleware');
 
+app.use(helmet());
 //Tratamento do Post(O req.body do método post, ficará undefined)
-app.use(express.urlencoded({extended: true}));
-
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(express.urlencoded({extended: true})); // Pode postar forms para dentro da aplicação
+app.use(express.json());
+app.use(express.static(path.resolve(__dirname, 'public'))); // Arquivos estáticos, que podem ser acessados diretamente (ex: imgs, css, js)
 
 const sessionOptions = session({
   secret: 'abaibhjasd hajiosd',
@@ -40,9 +39,12 @@ app.use(flash())
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
+app.use(csrf());
 // Nossos próprios middlewares
 app.use(middlewareGlobal);
 app.use(outroMiddleware);
+app.use(checkCsrfError);
+app.use(csrfMiddleware);
 
 app.use(routes);
 

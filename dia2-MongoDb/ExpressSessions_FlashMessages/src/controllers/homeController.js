@@ -20,7 +20,11 @@ exports.paginaInicial = (req, res) => {
     // req.flash('succes', 'Meromeromei');
     console.log(req.session.usuario);
     console.log(req.flash('error'), req.flash('Success'), req.flash('info'));
-    res.render('index');
+    res.render('index', {
+        // Para injetar um conteúdo na Home:
+        titulo: undefined,
+        numeros: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    });
 };
 
 exports.trataPost = (req, res) => {

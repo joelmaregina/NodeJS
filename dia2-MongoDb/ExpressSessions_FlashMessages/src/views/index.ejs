@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo</title>
-</head>
-<body>
+<%- include('includes/head'); %>
+
     <section class="container">
-        <h1>Teste</h1>
+        <h1>
+            <%# comentário do EJS %>
+            <% if(typeof titulo !== 'undefined') { %>
+                <%= titulo %>
+            <%  } else { %>
+                O titulo não foi enviado.
+            <% } %>
+                <br>
+            <% numeros.forEach( num => { %>
+                <%= num %> <br>
+            <% }); %>
+            
+            <!-- O sinal de Igual escapa caracteres (Mais seguro de ser utilizado) 
+            <%= titulo %> <br>
+            Esse deve ser usado quando você sabe que o o conteúdo que está vindo precisa ser HTML (não escapa caracteres)
+            <%- titulo %>
+            -->
+        </h1>
+        <h2> <%= umaVariavelLocal %> </h2>
         <form action="/" method="post">
+            <!-- Cria um novo token a cada interação da página - Sem ele dá erro: -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <label>Client</label>
             <input type="text" name="client">
             <button type="submit">Submit</button>
         </form>
     </section>
-    <script src="./assets/js/bundle.js"></script>
-</body>
-</html>
+
+<%- include('includes/head'); %>
