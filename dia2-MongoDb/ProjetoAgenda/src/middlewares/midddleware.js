@@ -1,6 +1,8 @@
 exports.middlewareGlobal = (req, res, next) => {
     // Para injetar um conteudo em todas as páginas
     res.locals.errors = req.flash('errors');
+    res.locals.success = req.flash('success');
+    res.locals.user = req.session.user;
 
     next();
 }

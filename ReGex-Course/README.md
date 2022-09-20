@@ -17,7 +17,7 @@
 | \ | Backlash (Escape character) : Must be used with the characters ˆ$*.[()\ when these special characters are going to be used as literal, since these characters have special meaning otherwise|
 
 
-## 01. The Extended Set:
+## 02. The Extended Set:
 
 | Symbol | What does it represent? |
 ------------|--------------
@@ -27,3 +27,13 @@
 |<h3>()</h3>| Divides patterns into groups |
 |<h3>{m}</h3>| Exaclty 'm' occurrences of whatever precedes|
 |<h3>{m,n}</h3>| At least m and at most n occurences of whatever precedes. Only one of m, n is mandatory. Other can be left blank |
+
+## 03. Control Characters
+
+
+| Symbol | What does it represent? |
+------------|--------------
+| \t | Tab|
+| \v | Vertical Tab|
+| \n | Newline |
+| \r | Carriage Return|
