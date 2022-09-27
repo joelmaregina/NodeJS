@@ -25,13 +25,17 @@
 |<h3><b>?</b></h3>| <b>Zero</b> or <b>one</b> occurence of the character that precedes this question mark |
 |<h3><b>pat1\|pat2</b></h3>| Matches either the pattern pat1 or the pat2 |
 |<h3><b>()</b></h3>| Divides patterns into groups (Capturing groups) |
-|<h3><b>(?: pattern)</b></h3>| It makes the group as a non-capturing group|
-|<h3><b>(pattern)\1 </b></h3>| It checks if the captured characters repeat (not the pattern)|
-|<h3><b>(?: pattern)</b></h3>| It makes the group as a non-capturing group|
-|<h3><b>(?<tagName>pattern)</b></h3>| It checks if the captured characters repeat (not the pattern)|
-|<h3><b>(?<tagName>pattern)\k<tagName> </b></h3>| It checks if the captured named group repeat (not the pattern)|
 |<h3><b>{m}</b></h3>| Exaclty 'm' occurrences of whatever precedes|
 |<h3><b>{m,n}</b></h3>| At least m and at most n occurences of whatever precedes. Only one of m, n is mandatory. Other can be left blank |
+|<h3><b>(?=pattern)</b></h3>| <b>(Lookahead group)</b> It makes the pattern a mandatory part by the end of the expression(But it doesn`t match the pattern) (ex: pattern.com) |
+|<h3><b>(?!pattern)</b></h3>| <b>(Negative lookahead group)</b> It makes the expression not match if the pattern is present|
+|<h3><b>(?<=pattern)</b></h3>| <b>(Lookbehind group)</b> It makes the pattern a mandatory part by the beginning of the expression(But it doesn`t match the pattern) (ex: $pattern, €pattern) |
+|<h3><b>(?<!pattern)</b></h3>| <b>(Negative lookbehind group)</b> It makes the expression not match if the pattern is present|
+|<h3><b>(?:pattern)</b></h3>| It makes the group as a non-capturing group|
+|<h3><b>(pattern)\1 </b></h3>| It checks if the captured characters repeat (not the pattern)|
+|<h3><b>(?: pattern)</b></h3>| It makes the group a non-capturing group|
+|<h3><b>(?<tagName>pattern)</b></h3>| It checks if the captured characters repeat (not the pattern)|
+|<h3><b>(?<tagName>pattern)\k<tagName> </b></h3>| It checks if the captured named group repeat (not the pattern)|
 <br>
 
 ## 03. Control Characters

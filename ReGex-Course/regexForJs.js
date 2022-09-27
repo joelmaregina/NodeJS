@@ -37,3 +37,6 @@ console.log(txt.split(regex1));
 let regex4 = /\s/;
 console.log(txt.split(regex4));
 [ 'Programming', 'courses', 'always', 'starts', 'with', 'a', 'hello', 'world', 'example.' ]
+
+//Ex: Regex para senhas (Maiúsculas, Minúsculas e números):
+let regex = /ˆ(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*/;
